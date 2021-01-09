@@ -18,13 +18,6 @@ const config = {
         exclude: /node_modules/
       },
       {
-        test: /\.css$/,
-        use: [
-          'style-loader',
-          'css-loader'
-        ]
-      },
-      {
         test: /\.ts(x)?$/,
         loader: 'ts-loader',
         exclude: /node_modules/
@@ -42,14 +35,6 @@ const config = {
               mimetype: 'image/png'
             }
           }
-        ]
-      },
-      {
-        test: /\.scss$/,
-        use: [
-          'style-loader',
-          'css-loader',
-          'sass-loader'
         ]
       }
     ]

@@ -3,6 +3,7 @@ import React, {useEffect, useState} from 'react';
 import { hot } from "react-hot-loader/root";
 import RootRouter from "./navigation/root-router";
 import { RootStore, RootStoreProvider, setupRootStore } from './store';
+import {NavBar, Wallpaper} from "./components";
 
 
 function App() {
@@ -26,8 +27,9 @@ function App() {
 
     return (
       <RootStoreProvider value={rootStore}>
-
-      <RootRouter />
+          <Wallpaper>
+              <RootRouter />
+          </Wallpaper>
       </RootStoreProvider>
     );
 }
