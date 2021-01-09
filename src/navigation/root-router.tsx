@@ -6,7 +6,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-import WelcomePage from "./pages/welcome-page";
+import {WelcomePage} from "./pages";
 
 /**
  * This type allows TypeScript to know what routes are defined in this navigator
@@ -27,7 +27,7 @@ export default function RootRouter() {
         {/* If the current URL is /about, this route is rendered
             while the rest are ignored */}
         <Route path="/about">
-          <WelcomePage name={'Bohun'} />
+          <WelcomePage />
         </Route>
 
         {/* Note how these two routes are ordered. The more specific
@@ -47,7 +47,7 @@ export default function RootRouter() {
             the URL because all URLs begin with a /. So that's
             why we put this one last of all */}
         <Route path="/">
-          <WelcomePage name={'Jon Doe'} />
+          <WelcomePage />
         </Route>
       </Switch>
     </BrowserRouter>
