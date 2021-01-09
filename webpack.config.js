@@ -1,5 +1,6 @@
 const webpack = require('webpack');
 const path = require('path');
+const CopyPlugin = require("copy-webpack-plugin");
 
 const config = {
   entry: [
@@ -52,8 +53,17 @@ const config = {
   },
   devServer: {
     contentBase: './dist',
-    port: 2021
-  }
+    port: 2021,
+    writeToDisk: true,
+  },
+  plugins: [
+    new CopyPlugin({
+      patterns: [
+        { from: "./src/assets", to: "./assets" },
+        { from: "./public", to: "./" },
+      ],
+    }),
+  ],
 };
 
 module.exports = config;
