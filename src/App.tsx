@@ -1,6 +1,13 @@
 
 import * as React from 'react';
 import { hot } from "react-hot-loader/root";
+import styled from "styled-components";
+
+const Title = styled.h1`
+  font-size: 1.5em;
+  text-align: center;
+  color: palevioletred;
+`
 
 interface Props {
    name:
@@ -12,9 +19,9 @@ class App extends React.Component<Props> {
     const { name } = this.props;
     return (
       <>
-        <h1>
+        <Title>
           Hello {name}
-        </h1>
+        </Title>
       </>
     );
   }
