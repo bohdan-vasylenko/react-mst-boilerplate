@@ -66,7 +66,8 @@ const config = {
     }
   },
   devServer: {
-    contentBase: './dist'
+    contentBase: './dist',
+    port: 2021
   }
 };
 
