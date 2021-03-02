@@ -1,5 +1,7 @@
 import { ApisauceInstance, create, ApiResponse } from 'apisauce';
 import { ApiConfig, DEFAULT_API_CONFIG } from './api-config';
+import * as Types from './api.types';
+import {getGeneralApiProblem} from "./api-problem";
 
 /**
  * Manages all requests to the API.
@@ -8,13 +10,12 @@ export class Api {
   /**
    * The underlying apisauce instance which performs the requests.
    */
-    // @ts-ignore
-  apisauce: ApisauceInstance;
+  public apisauce: ApisauceInstance;
 
   /**
    * Configurable options.
    */
-  config: ApiConfig;
+  public config: ApiConfig;
 
   /**
    * Creates the api.
@@ -23,6 +24,13 @@ export class Api {
    */
   constructor(config: ApiConfig = DEFAULT_API_CONFIG) {
     this.config = config;
+    this.apisauce =  create({
+      baseURL: this.config.url,
+      timeout: this.config.timeout,
+      headers: {
+        Accept: '*/*',
+      },
+    });
   }
 
   /**
@@ -41,5 +49,27 @@ export class Api {
         Accept: 'application/json',
       },
     });
+  }
+
+  async generalRequest(): Promise<Types.GeneralResponse> {
+
+    const response: ApiResponse<any> = await this.apisauce.get(`api/example`, {},{
+      headers: {
+        Authorization: `Bearer token`
+      }
+    });
+
+    if (!response.ok) {
+      const problem = getGeneralApiProblem(response);
+      if (problem) {
+        return problem;
+      }
+    }
+
+    try {
+      return { kind: 'ok', data: response?.data };
+    } catch {
+      return { kind: 'bad-data' };
+    }
   }
 }

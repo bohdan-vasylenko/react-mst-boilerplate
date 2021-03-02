@@ -1,6 +1,6 @@
 import { onSnapshot } from "mobx-state-tree"
 import { RootStoreModel, RootStore } from "./root-store"
-// import { Environment } from "../environment"
+import { Environment } from "./environment"
 import * as storage from "../utils/storage"
 
 /**
@@ -16,9 +16,9 @@ const ROOT_STATE_STORAGE_KEY = "root"
  * like events between models.
  */
 export async function createEnvironment() {
-  // const env = new Environment()
-  // await env.setup()
-  // return env
+  const env = new Environment()
+  await env.setup()
+  return env
 }
 
 /**

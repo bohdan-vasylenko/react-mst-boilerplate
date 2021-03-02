@@ -1,1 +1,4 @@
-module.exports = __DEV__ ? require("./env.dev") : require("./env.prod")
+module.exports =
+  process.env.NODE_ENV === "production"
+    ? require("./env.prod")
+    : require("./env.dev");

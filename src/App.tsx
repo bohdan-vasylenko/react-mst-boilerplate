@@ -3,12 +3,13 @@ import React, {useEffect, useState} from 'react';
 import { hot } from "react-hot-loader/root";
 import RootRouter from "./navigation/root-router";
 import { RootStore, RootStoreProvider, setupRootStore } from './store';
-import {NavBar, Wallpaper} from "./components";
-
+import GlobalStyles from "./theme/global-styles";
+import {Toast} from "./components/toast/toast";
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
 
-    const [rootStore, setRootStore] = useState<RootStore | undefined>(undefined);
+    const [rootStore, setRootStore] = useState<RootStore | null>(null);
 
     // Kick off initial async loading actions, like loading fonts and RootStore
     useEffect(() => {
@@ -27,9 +28,9 @@ function App() {
 
     return (
       <RootStoreProvider value={rootStore}>
-          <Wallpaper>
-              <RootRouter />
-          </Wallpaper>
+          <RootRouter />
+          <GlobalStyles/>
+          <Toast/>
       </RootStoreProvider>
     );
 }
