@@ -3,7 +3,6 @@ import styled from "styled-components";
 import {color, screenSizes} from "../../theme";
 import {observer} from "mobx-react-lite";
 import {useStores} from "../../store";
-import Loader from 'react-loader-spinner';
 import {useHistory} from "react-router-dom";
 
 export const StyledButton = styled.button`
@@ -58,11 +57,7 @@ export const Button = observer(function Button(props: Props) {
 
   return (
     <StyledButton onClick={action} disabled={disabled || global.isLoading} className={className} {...rest}>
-      {
-        fetchResponsive && global.isLoading ?
-          <Loader type={'Oval'} color={color.palette.white} height={20} width={20}/> :
-          content
-      }
+      {content}
     </StyledButton>
   );
 });

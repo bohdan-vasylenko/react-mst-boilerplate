@@ -4,8 +4,12 @@ import { hot } from "react-hot-loader/root";
 import RootRouter from "./navigation/root-router";
 import { RootStore, RootStoreProvider, setupRootStore } from './store';
 import GlobalStyles from "./theme/global-styles";
-import {Toast} from "./components/toast/toast";
-import 'react-toastify/dist/ReactToastify.css';
+import {I18nextProvider} from "react-i18next";
+import i18next from "i18next";
+// @ts-ignore
+import en from './translations/en.json';
+// @ts-ignore
+import fr from './translations/fr.json'
 
 function App() {
 
@@ -26,11 +30,25 @@ function App() {
         return null;
     }
 
+  i18next.init({
+    interpolation: { escapeValue: false },
+    lng: 'en',                              // language to use
+    resources: {
+      en: {
+        common: en
+      },
+      fr: {
+        common: fr
+      },
+    },
+  });
+
     return (
       <RootStoreProvider value={rootStore}>
+        <I18nextProvider i18n={i18next}>
           <RootRouter />
           <GlobalStyles/>
-          <Toast/>
+        </I18nextProvider>
       </RootStoreProvider>
     );
 }
