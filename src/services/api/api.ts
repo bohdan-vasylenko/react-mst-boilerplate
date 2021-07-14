@@ -49,6 +49,14 @@ export class Api {
         Accept: 'application/json',
       },
     });
+
+    this.apisauce.addAsyncRequestTransform(request => async () => {
+      const token = localStorage.getItem('authToken')
+      if (token) {
+        request.headers.Authorization = `Bearer ${token}`
+      }
+    })
+
   }
 
   async generalRequest(): Promise<Types.GeneralResponse> {
