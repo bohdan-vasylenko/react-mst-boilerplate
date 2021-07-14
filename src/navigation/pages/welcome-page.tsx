@@ -17,7 +17,7 @@ const Span = styled.span`
 `
 
 export const WelcomePage = observer(function WelcomePage() {
-  const {global} = useStores()
+  const { global } = useStores()
     return (
       <>
         <Title>

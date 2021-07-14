@@ -31,14 +31,14 @@ module.exports = options => ({
         test: /\.tsx?$/, // Transform all .ts and .tsx files required somewhere with Babel
         exclude: /node_modules/,
         use: [
-            {
-          loader: 'babel-loader',
-          options: options.babelQuery,
-        },
           {
-            loader: 'ts-loader'
-          }
-            ],
+            loader: 'babel-loader',
+            options: options.babelQuery,
+          },
+          {
+            loader: 'ts-loader',
+          },
+        ],
       },
       {
         // Preprocess our own .css files

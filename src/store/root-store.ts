@@ -1,4 +1,4 @@
-import { Instance, SnapshotOut, types } from 'mobx-state-tree';
+import { Instance, SnapshotOut, types } from "mobx-state-tree";
 import {GlobalModel} from "./models/global/global";
 
 /**

@@ -4,8 +4,6 @@ import { hot } from "react-hot-loader/root";
 import RootRouter from "./navigation/root-router";
 import { RootStore, RootStoreProvider, setupRootStore } from './store';
 import GlobalStyles from "./theme/global-styles";
-import {Toast} from "./components/toast/toast";
-import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
 
@@ -30,7 +28,6 @@ function App() {
       <RootStoreProvider value={rootStore}>
           <RootRouter />
           <GlobalStyles/>
-          <Toast/>
       </RootStoreProvider>
     );
 }
