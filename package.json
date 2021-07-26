@@ -9,6 +9,7 @@
   "scripts": {
     "build:clean": "rimraf ./build",
     "build": "cross-env NODE_ENV=production webpack --config internals/webpack/webpack.prod.babel.js --color --progress",
+    "generate": "plop --plopfile internals/generators/index.js",
     "start": "cross-env NODE_ENV=development node --max_old_space_size=2048 server",
     "test": "jest"
   },
@@ -60,6 +61,7 @@
     "node-sass": "^6.0.1",
     "null-loader": "4.0.1",
     "offline-plugin": "^5.0.7",
+    "plop": "^2.7.4",
     "prettier": "^2.3.2",
     "react-app-polyfill": "^2.0.0",
     "sass-loader": "^12.1.0",

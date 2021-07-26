@@ -1,0 +1,50 @@
+/**
+ *
+ * {{ properCase name }}
+ *
+ */
+
+{{#if memo}}
+import React, { memo } from 'react';
+{{else}}
+import React from 'react';
+{{/if}}
+import styled from 'styled-components';
+import {color} from "../../theme";
+import {observer} from "mobx-react-lite";
+//import {useStores} from "../../store";
+//import {useHistory} from "react-router-dom";
+{{#if wantMessages}}
+import { FormattedMessage } from 'react-intl';
+import messages from './messages';
+{{/if}}
+
+export const Wrapper = styled.div`
+  background-color: ${color.transparent};
+`
+
+interface Props {
+  className?: string;
+}
+
+const {{ properCase name }} = observer(function {{ properCase name }}(props: Props) {
+  //uncomment this line and import if you're planning on using browser history
+  //const history = useHistory();
+  //uncomment this line and import if you're planning on using stores
+  //const {global} = useStores();
+  const {className} = props;
+
+  return (
+  <Wrapper className={className}>
+    {{#if wantMessages}}
+      <FormattedMessage {...messages.header} />
+    {{/if}}
+  </Wrapper>
+  );
+})
+
+{{#if memo}}
+export default memo({{ properCase name }});
+{{else}}
+export default {{ properCase name }};
+{{/if}}

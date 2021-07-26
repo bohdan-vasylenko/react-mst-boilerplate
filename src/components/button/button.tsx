@@ -1,6 +1,6 @@
 import * as React from 'react';
 import styled from "styled-components";
-import {color, screenSizes} from "../../theme";
+import {color} from "../../theme";
 import {observer} from "mobx-react-lite";
 import {useStores} from "../../store";
 import {useHistory} from "react-router-dom";
@@ -20,9 +20,6 @@ export const StyledButton = styled.button`
     font-weight: bold;
     outline: none;
     opacity: ${(props) => props.disabled ? 0.4 : 1};
-    @media screen and (max-width: ${screenSizes[1]}) {
-      padding: 8px;
-    }
   `
 
 interface Props {

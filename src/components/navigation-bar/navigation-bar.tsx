@@ -2,17 +2,14 @@ import * as React from 'react';
 import styled from "styled-components";
 import {RouterRoute, routes} from "../../navigation/root-router";
 import {useLocation} from "react-router-dom";
-import {color, screenSizes} from "../../theme";
-import {Button} from "../button/button";
+import {color} from "../../theme";
+import {Button} from "../../components/button/button";
 
 const Container = styled.div`
     height: 80px;
     display: flex;
     flex: 1;
     padding: 0 180px;
-    @media screen and (max-width: ${screenSizes[1]}) {
-      padding: 0 10px;
-    }
   `
 const InnerWrapper = styled.div`
      height: 80px;
@@ -22,9 +19,6 @@ const InnerWrapper = styled.div`
     align-items: center;
     justify-content: space-between;
     margin: auto;
-    @media screen and (max-width: ${screenSizes[1]}) {
-      align-items: center;
-    }
 `
 const MainMenuButton = styled(Button)`
   background-color: ${color.transparent};
