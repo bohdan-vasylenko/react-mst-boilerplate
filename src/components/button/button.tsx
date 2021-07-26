@@ -1,8 +1,8 @@
 import * as React from 'react';
 import styled from "styled-components";
-import {color} from "src/theme";
+import {color} from "../../theme";
 import {observer} from "mobx-react-lite";
-import {useStores} from "src/store";
+import {useStores} from "../../store";
 import {useHistory} from "react-router-dom";
 
 export const StyledButton = styled.button`

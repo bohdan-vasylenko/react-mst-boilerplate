@@ -1,9 +1,9 @@
 import * as React from 'react';
 import styled from "styled-components";
-import {RouterRoute, routes} from "src/navigation/root-router";
+import {RouterRoute, routes} from "../../navigation/root-router";
 import {useLocation} from "react-router-dom";
-import {color} from "src/theme";
-import {Button} from "src/components/button/button";
+import {color} from "../../theme";
+import {Button} from "../../components/button/button";
 
 const Container = styled.div`
     height: 80px;
